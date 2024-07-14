@@ -1,0 +1,1 @@
+# dataFilo do __Projeto Base Filosófica__
