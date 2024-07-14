@@ -8,6 +8,14 @@ A análise de dados é um dos eixos centrais do __Projeto Base Filosófica__, qu
 
 O __dataFilo__ objetiva a produção de análises com foco na realidade acadêmica, concentrando esforços na caracterização do cenário de pesquisa, desde as suas condições até a publicização de seus resultados.
 
-## Dados e Fontes
+## Fontes de dados
 
-Atualmente, utilizamos como fontes principais as bases disponíveis no site https://dadosabertos.capes.gov.br/, e na coleta direta de informações disponíveis nos sites de 62 revistas acadêmicas, monitoradas a partir dos metadados capturados na interface gerada pelo sistema Open Journal System (OJS).
+Atualmente, utilizamos como fontes principais as bases disponíveis no site de dados abertos da Capes (https://dadosabertos.capes.gov.br/), e na coleta direta de informações disponíveis nos sites de 62 revistas acadêmicas, monitoradas a partir dos metadados capturados na interface gerada pelo sistema Open Journal System (OJS).
+
+## Linguagem de produção
+
+Utiliza-se a __Linguagem R__ como padrão para o processo de Extração, Tratamento e Carga (ETL) dos dados. A saída final ocorre para __arquivos CSV__, contendo as visões necessárias à análise.
+
+## Produtos
+
+Os principsi produtos são carregados para um banco __PostgresQl__ que fornece os dados usados na página do dataFilo, disponível no site Base Filosófica (https://basefilosofica.com.br/datafilo).
