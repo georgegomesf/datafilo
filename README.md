@@ -10,7 +10,9 @@ O __dataFilo__ objetiva a produção de análises com foco na realidade acadêmi
 
 ## Fontes de dados
 
-Atualmente, utilizamos como fontes principais as bases disponíveis no site de dados abertos da Capes (https://dadosabertos.capes.gov.br/), e na coleta direta de informações disponíveis nos sites de 62 revistas acadêmicas, monitoradas a partir dos metadados capturados na interface gerada pelo sistema Open Journal System (OJS). Os nomes dos arquivos foram conservados como no original, mas os arquivos foram compactados para GZ, cujo tamanho reduzido facilita o transporte, ao mesmo tempo, que não impede de ser carregado a partir da função _fread()_, da biblioteca __data.tables__.
+Atualmente, utilizamos como fontes principais as bases disponíveis no site de dados abertos da Capes (https://dadosabertos.capes.gov.br/). Os nomes das bases de dados da Capes foram conservados como no original, mas os arquivos foram compactados para GZ, cujo tamanho reduzido facilita o transporte, ao mesmo tempo, que não impede de ser carregado a partir da função _fread()_, da biblioteca __data.tables__.
+
+Outra fonte é a coleta direta de informações disponíveis nos sites de periódicos acadêmicos, monitoradas a partir dos metadados capturados na interface gerada pelo sistema Open Journal System (OJS).
 
 ## Produção
 
