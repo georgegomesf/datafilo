@@ -53,4 +53,4 @@ base$programa <- toupper(base$programa)
 base <- subset(base,!grau %in% c("GRADUAÇÃO") & !situacao %like% "DEFESA")
 base$situacao <- ifelse(base$situacao=='ABANDONOU','ABANDONO',base$situacao)
 
-write.csv2(base,"tabelas/discentes_situacao.csv",row.names=F,na="")
+write.csv2(base,"tabelas/discentes_detalhes.csv",row.names=F,na="")
