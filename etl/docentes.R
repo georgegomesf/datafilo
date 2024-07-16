@@ -55,4 +55,4 @@ base$programa <- ifelse(base$grande_area=="CIÊNCIAS HUMANAS",base$programa,"Out
 
 view <- setNames(dcast(data.table(base),ano+grau+uf_sg+ies_sg+grande_area+area+programa~""),c("ano","grau","uf_sg","ies_sg","grande_area","area","programa","medida"))
 
-write.csv2(view,"tabelas/do_view.csv",row.names=F,na="")
+write.csv2(view,"tabelas/discentes.csv",row.names=F,na="")

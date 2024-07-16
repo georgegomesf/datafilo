@@ -57,4 +57,4 @@ base <- subset(base,!grau %in% c("GRADUAÇÃO"))
 
 view <- setNames(dcast(data.table(base),ano+grau+uf_sg+ies_sg+grande_area+area+programa~""),c("ano","grau","uf_sg","ies_sg","grande_area","area","programa","medida"))
 
-write.csv2(view,"tabelas/view.csv",row.names=F,na="")
+write.csv2(view,"tabelas/discentes.csv",row.names=F,na="")
