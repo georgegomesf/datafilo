@@ -11,10 +11,10 @@ ate_2012 <- data.frame()
 for(arquivo in arquivos){
 
   print(arquivo)
-  td <- fread(paste0(dir,arquivo), encoding = 'Latin-1')
-  if(!is.na(td)){
-    td <- subset(td,select=c(AN_BASE,SG_UF_ENTIDADE_ENSINO,SG_ENTIDADE_ENSINO,CD_PROGRAMA_IES,NM_PROGRAMA_IES,NM_NIVEL_TITULACAO_DISCENTE,CD_AREA_AVALIACAO,NM_AREA_AVALIACAO,NM_SITUACAO_DISCENTE))
-    ate_2012 <- rbind.fill(ate_2012,td)
+  dt <- fread(paste0(dir,arquivo), encoding = 'Latin-1')
+  if(nrow(dt)>0){
+    dt <- subset(dt,select=c(AN_BASE,SG_UF_ENTIDADE_ENSINO,SG_ENTIDADE_ENSINO,CD_PROGRAMA_IES,NM_PROGRAMA_IES,NM_NIVEL_TITULACAO_DISCENTE,CD_AREA_AVALIACAO,NM_AREA_AVALIACAO,NM_SITUACAO_DISCENTE))
+    ate_2012 <- rbind.fill(ate_2012,dt)
   }
 
 }
@@ -27,10 +27,10 @@ desde_2013 <- data.frame()
 for(arquivo in arquivos){
 
   print(arquivo)
-  td <- fread(paste0(dir,arquivo), encoding = 'Latin-1')
-  if(!is.na(td)){
-    td <- subset(td,select=c(AN_BASE,SG_UF_PROGRAMA,SG_ENTIDADE_ENSINO,CD_PROGRAMA_IES,NM_PROGRAMA_IES,DS_GRAU_ACADEMICO_DISCENTE,CD_AREA_AVALIACAO,NM_AREA_AVALIACAO,NM_SITUACAO_DISCENTE))
-    desde_2013 <- rbind.fill(desde_2013,td)
+  dt <- fread(paste0(dir,arquivo), encoding = 'Latin-1',fill=TRUE)
+  if(nrow(dt)>0){
+    dt <- subset(dt,select=c(AN_BASE,SG_UF_PROGRAMA,SG_ENTIDADE_ENSINO,CD_PROGRAMA_IES,NM_PROGRAMA_IES,DS_GRAU_ACADEMICO_DISCENTE,CD_AREA_AVALIACAO,NM_AREA_AVALIACAO,NM_SITUACAO_DISCENTE))
+    desde_2013 <- rbind.fill(desde_2013,dt)
   }
 
 }
