@@ -41,7 +41,7 @@ for(arquivo in arquivos){
 
 }
 
-td_base <- rbind.fill(
+base <- rbind.fill(
     setNames(
         subset(ate_2012,select=c(AnoBase,Uf,SiglaIes,CodigoPrograma,NomePrograma,AreaConhecimentoCodigo,AreaConhecimento,GrandeAreaCodigo,GrandeAreaDescricao,Nivel)),
         c("ano","uf_sg","ies_sg","programa_cd","programa","area_cd","area","grande_area_cd","grande_area","grau")
@@ -52,12 +52,12 @@ td_base <- rbind.fill(
     )
 )
 
-td_base$programa <- toupper(td_base$programa)
-td_base$grau <- toupper(td_base$grau)
-td_base$programa <- ifelse(td_base$grande_area=="CIÊNCIAS HUMANAS",td_base$programa,"Outros")
-td_base$area <- ifelse(td_base$grande_area=="CIÊNCIAS HUMANAS",td_base$area,"Outras")
-td_base$grande_area <- ifelse(td_base$grande_area=="CIÊNCIAS HUMANAS",td_base$grande_area,"Outras")
+base$programa <- toupper(base$programa)
+base$grau <- toupper(base$grau)
+base$programa <- ifelse(base$grande_area=="CIÊNCIAS HUMANAS",base$programa,"Outros")
+base$area <- ifelse(base$grande_area=="CIÊNCIAS HUMANAS",base$area,"Outras")
+base$grande_area <- ifelse(base$grande_area=="CIÊNCIAS HUMANAS",base$grande_area,"Outras")
 
-td_view <- setNames(dcast(data.table(td_base),ano+grau+uf_sg+ies_sg+grande_area+area+programa~""),c("ano","grau","uf_sg","ies_sg","grande_area","area","programa","n_producoes"))
+view <- setNames(dcast(data.table(base),ano+grau+uf_sg+ies_sg+grande_area+area+programa~""),c("ano","grau","uf_sg","ies_sg","grande_area","area","programa","n_producoes"))
 
-write.csv2(td_view,"tabelas/td_view.csv",row.names=F,na="")
+write.csv2(view,"tabelas/view.csv",row.names=F,na="")

@@ -35,7 +35,7 @@ for(arquivo in arquivos){
 
 }
 
-dd_base <- rbind.fill(
+base <- rbind.fill(
     setNames(
         subset(ate_2012,select=c(AN_BASE,SG_UF_ENTIDADE_ENSINO,SG_ENTIDADE_ENSINO,CD_PROGRAMA_IES,NM_PROGRAMA_IES,NM_NIVEL_TITULACAO_DISCENTE,CD_AREA_AVALIACAO,NM_AREA_AVALIACAO,NM_SITUACAO_DISCENTE)),
         c("ano","uf_sg","ies_sg","programa_cd","programa","grau","area_cd","area","situacao")
@@ -46,14 +46,15 @@ dd_base <- rbind.fill(
     )
 )
 
-dd_base$programa <- toupper(dd_base$programa)
+base$programa <- toupper(base$programa)
 
-dd_base$grande_area <- ifelse(dd_base$area %in% c("EDUCAÇÃO","DIREITO", "LETRAS / LINGUÍSTICA", "PSICOLOGIA", "ANTROPOLOGIA / ARQUEOLOGIA", "ENSINO", "SOCIOLOGIA", "SERVIÇO SOCIAL","GEOGRAFIA", "HISTÓRIA", "ECONOMIA", "FILOSOFIA / TEOLOGIA:SUBCOMISSÃO FILOSOFIA", "ARTES / MÚSICA","CIÊNCIA POLÍTICA E RELAÇÕES INTERNACIONAIS", "CIÊNCIAS SOCIAIS APLICADAS I", "FILOSOFIA/TEOLOGIA:SUBCOMISSÃO TEOLOGIA", "COMUNICAÇÃO E INFORMAÇÃO", "FILOSOFIA","TEOLOGIA", "LINGUÍSTICA E LITERATURA", "ARTES", "CIÊNCIAS DA RELIGIÃO E TEOLOGIA"),"CIÊNCIAS HUMANAS","Outras")
-dd_base$area <- ifelse(dd_base$grande_area=="CIÊNCIAS HUMANAS",dd_base$area,"Outras")
-dd_base$programa <- ifelse(dd_base$grande_area=="CIÊNCIAS HUMANAS",dd_base$programa,"Outros")
-dd_base <- subset(dd_base,situacao %in% c("MATRICULADO"))
-dd_base <- subset(dd_base,!grau %in% c("GRADUAÇÃO"))
+base$area <- ifelse(base$area %like% "FILOSOFIA","FILOSOFIA",base$area)
+base$grande_area <- ifelse(base$area %in% c("EDUCAÇÃO","DIREITO", "LETRAS / LINGUÍSTICA", "PSICOLOGIA", "ANTROPOLOGIA / ARQUEOLOGIA", "ENSINO", "SOCIOLOGIA", "SERVIÇO SOCIAL","GEOGRAFIA", "HISTÓRIA", "ECONOMIA", "FILOSOFIA / TEOLOGIA:SUBCOMISSÃO FILOSOFIA", "ARTES / MÚSICA","CIÊNCIA POLÍTICA E RELAÇÕES INTERNACIONAIS", "CIÊNCIAS SOCIAIS APLICADAS I", "FILOSOFIA/TEOLOGIA:SUBCOMISSÃO TEOLOGIA", "COMUNICAÇÃO E INFORMAÇÃO", "FILOSOFIA","TEOLOGIA", "LINGUÍSTICA E LITERATURA", "ARTES", "CIÊNCIAS DA RELIGIÃO E TEOLOGIA"),"CIÊNCIAS HUMANAS","Outras")
+base$area <- ifelse(base$grande_area=="CIÊNCIAS HUMANAS",base$area,"Outras")
+base$programa <- ifelse(base$grande_area=="CIÊNCIAS HUMANAS",base$programa,"Outros")
+base <- subset(base,situacao %in% c("MATRICULADO"))
+base <- subset(base,!grau %in% c("GRADUAÇÃO"))
 
-dd_view <- setNames(dcast(data.table(dd_base),ano+grau+uf_sg+ies_sg+grande_area+area+programa~""),c("ano","grau","uf_sg","ies_sg","grande_area","area","programa","n_matriculas"))
+view <- setNames(dcast(data.table(base),ano+grau+uf_sg+ies_sg+grande_area+area+programa~""),c("ano","grau","uf_sg","ies_sg","grande_area","area","programa","medida"))
 
-write.csv2(dd_view,"tabelas/dd_view.csv",row.names=F,na="")
+write.csv2(view,"tabelas/view.csv",row.names=F,na="")
