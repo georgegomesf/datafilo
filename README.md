@@ -1,12 +1,12 @@
 # dataFilo - _Projeto Base Filosófica_
 
-Scripts para a análise dos dados da pesquisa acadêmica em Filosofia no Brasil, disponibilizados no âmbito do Projeto Base Filosófica.
+Scripts para a análise dos dados da Pós-Graduação Stricto Sensu em Filosofia no Brasil, disponibilizados no âmbito do Projeto Base Filosófica.
 
 ## Sobre o dataFilo
 
 A análise de dados é um dos eixos centrais do __Projeto Base Filosófica__, que oferece suporte à pesquisa acadêmica em filosofia no Brasil, através da indexação e disponibilização de produções como __Artigos__, __Teses__ e __Dissertações__, e da produção de conhecimento sobre técnicas, métodos e recursos úteis ao desenvolvimento dos estudos.
 
-O __dataFilo__ objetiva a produção de análises com foco na realidade acadêmica, concentrando esforços na caracterização do cenário de pesquisa, desde as suas condições até a publicização de seus resultados.
+O __dataFilo__ objetiva ptofuxit análises com foco na realidade da Pós-Graduação Stricto Sensu em Filosofia no Brasil, caracterizando do cenário dos estudos e das pesquisa, desde as suas condições até a publicização de seus resultados.
 
 ## Fontes de dados
 
